@@ -12,11 +12,13 @@ Just copy "vBrain" folder in your java project scripts folder.
 
 Create an instance of a Brain, set Lobes with network and put the brain to work.
 
+
 * __Brain Creation__
 ```java
 //Simple way to create a brain
 Brain brain = new Brain();
 ```
+
 
 * __Lobe Creation__
 ```java
@@ -30,6 +32,7 @@ brain.insertLobes(new Lobe[]{lobe1});
 brain.learnLobe("Lobe1",templates,errorMin);
 ```
 
+
 * __Brain work functions__
 ```java
 //Put brain thread to work
@@ -40,5 +43,24 @@ brain.stopWork();
 
 //Set data on lobe to calcule
 brain.setDataOnLobeWithName("LobeName",data);
+```
+
+
+* __Network Create__
+```java
+
+new Network(inputLayerSize, hiddenLayersSizes, outputLayerSize, netFunction);
+		
+new Network(inputLayerSize, hiddenLayersSizes, outputLayerSize, netFunction, learnRate);
+
+new Network(inputLayerSize, hiddenLayersSizes, outputLayerSize, netFunction, learnRate, momentum);
+```
+
+
+* __Sense Types__
+```java
+Sense sense = new SimpleSense();
+
+Sense sense = new AcumulativeSense(dataCount);
 ```
 
