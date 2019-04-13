@@ -57,7 +57,7 @@ import java.util.*;
         }
 
 
-        public void work()
+        public void startWork()
         {
 			working = true;
 			brainThread = new Thread(new Runnable(){
@@ -112,5 +112,13 @@ import java.util.*;
             }
             return returnLobe;
         }
+		
+		public void setDataOnLobeWithName(String lobeName,double[] data){
+			getLobeFromName(lobeName).sense.setData(data);
+		}
+
+		public void setDataOnLobeWithID(String lobeID,double[] data){
+			getLobeFromID(lobeID).sense.setData(data);
+		}
     }
 
