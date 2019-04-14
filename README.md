@@ -73,24 +73,24 @@ INetFunction sense = new Sigmoid();
 
 * __Use Lobe Target Configuration__
 ```java
-		Lobe lobe1 = new Lobe("Lobe1", new Network(2, new int[]{6,4},1,new Sigmoid()), new SimpleSense());
-		Lobe lobe2 = new Lobe("Lobe2", new Network(2, new int[]{6,4},1,new Sigmoid()), new SimpleSense());
-		Lobe lobe3 = new Lobe(
-			"Lobe3",
-			new Network(2,new int[]{6,4},1,new Sigmoid()),
-			new AcumulativeSense(2),
-			new Action(){
-				public void Invoke(ActionEvent e){
-					double[] result = (double[])e.data;
-					System.out.println("Output: "+result[0]);
-				}
-			}
-		);
+Lobe lobe1 = new Lobe("Lobe1", new Network(2, new int[]{6,4},1,new Sigmoid()), new SimpleSense());
+Lobe lobe2 = new Lobe("Lobe2", new Network(2, new int[]{6,4},1,new Sigmoid()), new SimpleSense());
+Lobe lobe3 = new Lobe(
+	"Lobe3",
+	new Network(2,new int[]{6,4},1,new Sigmoid()),
+	new AcumulativeSense(2),
+	new Action(){
+		public void Invoke(ActionEvent e){
+			double[] result = (double[])e.data;
+			System.out.println("Output: "+result[0]);
+		}
+	}
+);
 		
-		//Insert lobe target
-		lobe1.insertTargets(new Lobe[]{lobe3});
-		lobe2.insertTargets(new Lobe[]{lobe3});
+//Insert lobe target
+lobe1.insertTargets(new Lobe[]{lobe3});
+lobe2.insertTargets(new Lobe[]{lobe3});
 		
-		//Insert lobes to brain
-		brain.insertLobes(new Lobe[]{lobe1,lobe2,lobe3});
+//Insert lobes to brain
+brain.insertLobes(new Lobe[]{lobe1,lobe2,lobe3});
 ```
