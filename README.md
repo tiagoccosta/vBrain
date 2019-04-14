@@ -35,9 +35,9 @@ brain.learnLobe("Lobe1",templates,errorMin);
 
 * __Sense Types__
 ```java
-Sense sense = new SimpleSense();
+ISense sense = new SimpleSense();
 
-Sense sense = new AcumulativeSense(dataCount);
+ISense sense = new AcumulativeSense(dataCount);
 ```
 
 
@@ -71,8 +71,26 @@ INetFunction sense = new Sigmoid();
 ```
 
 
-* __Lobe Target Configuration__
+* __Use Lobe Target Configuration__
 ```java
-//Sigmoid is the only function created at the moment
-INetFunction sense = new Sigmoid();
+		Lobe lobe1 = new Lobe("Lobe1", new Network(2, new int[]{6,4},1,new Sigmoid()), new SimpleSense());
+		Lobe lobe2 = new Lobe("Lobe2", new Network(2, new int[]{6,4},1,new Sigmoid()), new SimpleSense());
+		Lobe lobe3 = new Lobe(
+			"Lobe3",
+			new Network(2,new int[]{6,4},1,new Sigmoid()),
+			new AcumulativeSense(2),
+			new Action(){
+				public void Invoke(ActionEvent e){
+					double[] result = (double[])e.data;
+					System.out.println("Output: "+result[0]);
+				}
+			}
+		);
+		
+		//Insert lobe target
+		lobe1.insertTargets(new Lobe[]{lobe3});
+		lobe2.insertTargets(new Lobe[]{lobe3});
+		
+		//Insert lobes to brain
+		brain.insertLobes(new Lobe[]{lobe1,lobe2,lobe3});
 ```
