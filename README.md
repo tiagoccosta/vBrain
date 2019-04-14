@@ -33,6 +33,14 @@ brain.learnLobe("Lobe1",templates,errorMin);
 ```
 
 
+* __Sense Types__
+```java
+Sense sense = new SimpleSense();
+
+Sense sense = new AcumulativeSense(dataCount);
+```
+
+
 * __Brain work functions__
 ```java
 //Put brain thread to work
@@ -48,7 +56,6 @@ brain.setDataOnLobeWithName("LobeName",data);
 
 * __Network Create__
 ```java
-
 new Network(inputLayerSize, hiddenLayersSizes, outputLayerSize, netFunction);
 		
 new Network(inputLayerSize, hiddenLayersSizes, outputLayerSize, netFunction, learnRate);
@@ -57,10 +64,15 @@ new Network(inputLayerSize, hiddenLayersSizes, outputLayerSize, netFunction, lea
 ```
 
 
-* __Sense Types__
+* __NetFunction Types__
 ```java
-Sense sense = new SimpleSense();
-
-Sense sense = new AcumulativeSense(dataCount);
+//Sigmoid is the only function created at the moment
+INetFunction sense = new Sigmoid();
 ```
 
+
+* __Lobe Target Configuration__
+```java
+//Sigmoid is the only function created at the moment
+INetFunction sense = new Sigmoid();
+```

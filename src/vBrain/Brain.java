@@ -65,7 +65,7 @@ import java.util.*;
 					while(working){
 						for (int i = 0; i < lobes.size(); i++)
 						{
-							boolean worked = lobes.get(i).Work();
+							boolean worked = lobes.get(i).work();
 						}
 					}
 				}

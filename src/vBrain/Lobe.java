@@ -50,12 +50,12 @@ import java.util.*;
             lobesTargets = new ArrayList<Lobe>(Arrays.asList(targets));
         }
 
-        public void InsertTargets(Lobe[] targets)
+        public void insertTargets(Lobe[] targets)
         {
             lobesTargets.addAll(Arrays.asList(targets));
         }
 
-        public boolean Work()
+        public boolean work()
         {
             boolean worked = false;
             if (sense.toAnalisate())
@@ -65,7 +65,7 @@ import java.util.*;
                 lastOutput = network.compute(sense.getData(network));
                 for (Lobe lobeTarget : lobesTargets) {
                     lobeTarget.sense.setData(lastOutput);
-                    lobeTarget.Work();
+                    lobeTarget.work();
                 }
                 if (action != null)
                     action.Invoke(new ActionEvent(this,lastOutput));
